@@ -10,3 +10,12 @@ Feature: Consultar información de un Pokémon usando PokeAPI
     And match response.name == 'pikachu'
     And match response.id == 25
     And match response.types[*].type.name contains 'electric'
+
+
+  Scenario: Obtener información del Pokémon Pikachu
+    Given path 'pokemon/pichu'
+    When method get
+    Then status 200
+    And match response.name == 'pikachu'
+    And match response.types[*].type.name contains 'electric'
+
